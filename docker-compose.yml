@@ -1,0 +1,17 @@
+version: "3.4"
+services:
+  redis:
+    image: redis
+  mongo:
+    image: mongo
+  web:
+    build:
+      context: ./
+      target: dev
+    volumes:
+      - .:/usr/src/app
+    command: npm run start:dev
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
