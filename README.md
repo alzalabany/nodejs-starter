@@ -15,6 +15,12 @@
 - [ ] MariaDB Mysql DB
 - [ ] SqlLite Dev. DB
 
+## Deployment
+
+- [x] Docker for development
+- [x] Docker for production
+- [ ] Gitlab Pipeline
+
 ## Language:
 
 - [x] Javascript -commonJS
