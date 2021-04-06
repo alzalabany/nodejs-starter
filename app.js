@@ -14,7 +14,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-
+console.log('staring app @' + process.env.PORT);
 fs
   .readdirSync(path.join(__dirname,'/routes'))
   .filter(file => {
@@ -23,7 +23,7 @@ fs
   .forEach(file => {
     const route = require(path.join(__dirname, '/routes/' ,file))
     if (typeof route === 'function') {
-        console.log('Regestring route: ' + file);
+        console.log('starting route: ' + file);
         route(app);
     } else {
         console.log('skipping ' + file);

@@ -2,14 +2,16 @@ version: "3.4"
 services:
   redis:
     image: redis
+    container_name: api_redis_prod
   mongo:
     image: mongo
+    container_name: api_mongo_prod
   web:
+    env_file:
+      - .env.production
     build:
       context: ./
-      target: production
-    command: npm run start
+      target: base
+    container_name: api_gateway_production
     ports:
-      - "3000:3000"
-    environment:
-      NODE_ENV: production
+      - "8080:80"
